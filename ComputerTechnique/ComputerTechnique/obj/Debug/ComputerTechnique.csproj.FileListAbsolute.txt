@@ -1,0 +1,17 @@
+C:\Users\evgen\Desktop\ComputerTechnique\ComputerTechnique\bin\Debug\ComputerTechnique.exe.config
+C:\Users\evgen\Desktop\ComputerTechnique\ComputerTechnique\bin\Debug\ComputerTechnique.exe
+C:\Users\evgen\Desktop\ComputerTechnique\ComputerTechnique\bin\Debug\ComputerTechnique.pdb
+C:\Users\evgen\Desktop\ComputerTechnique\ComputerTechnique\obj\Debug\ComputerTechnique.csprojAssemblyReference.cache
+C:\Users\evgen\Desktop\ComputerTechnique\ComputerTechnique\obj\Debug\ComputerTechnique.Main.resources
+C:\Users\evgen\Desktop\ComputerTechnique\ComputerTechnique\obj\Debug\ComputerTechnique.Properties.Resources.resources
+C:\Users\evgen\Desktop\ComputerTechnique\ComputerTechnique\obj\Debug\ComputerTechnique.csproj.GenerateResource.cache
+C:\Users\evgen\Desktop\ComputerTechnique\ComputerTechnique\obj\Debug\ComputerTechnique.csproj.CoreCompileInputs.cache
+C:\Users\evgen\Desktop\ComputerTechnique\ComputerTechnique\obj\Debug\ComputerTechnique.exe
+C:\Users\evgen\Desktop\ComputerTechnique\ComputerTechnique\obj\Debug\ComputerTechnique.pdb
+C:\Users\evgen\Desktop\ComputerTechnique\ComputerTechnique\obj\Debug\ComputerTechnique.Device.resources
+C:\Users\evgen\Desktop\ComputerTechnique\ComputerTechnique\obj\Debug\ComputerTechnique.NewType.resources
+C:\Users\evgen\Desktop\ComputerTechnique\ComputerTechnique\obj\Debug\ComputerTechnique.Employee.resources
+C:\Users\evgen\Desktop\ComputerTechnique\ComputerTechnique\obj\Debug\ComputerTechnique.DeviceMovement.resources
+C:\Users\evgen\Desktop\ComputerTechnique\ComputerTechnique\obj\Debug\ComputerTechnique.Repair.resources
+C:\Users\evgen\Desktop\ComputerTechnique\ComputerTechnique\obj\Debug\ComputerTechnique.Software.resources
+C:\Users\evgen\Desktop\ComputerTechnique\ComputerTechnique\obj\Debug\ComputerTechnique.csproj.ResolveComReference.cache

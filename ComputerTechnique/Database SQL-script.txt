@@ -1,0 +1,210 @@
+Create DataBase ComputerTechnique
+go
+use ComputerTechnique
+go
+CREATE TABLE Characteristic
+( 
+	ID_Characteristic    integer  identity (1,1) not null primary key ,
+	Name                 varchar(20)  NOT NULL ,
+	Value                varchar(50)  NULL,
+        Device               int NOT NULL
+)
+go
+
+
+
+CREATE TABLE Department
+( 
+	ID_Department        integer  identity (1,1) not null primary key ,
+	Name                 varchar(40)  NOT NULL 
+)
+go
+
+
+
+CREATE TABLE Device
+( 
+	ID_Device            integer  identity (1,1) not null primary key ,
+	Name                 varchar(100)  NOT NULL ,
+	InventoryNumber      varchar(20)  NOT NULL ,
+	DeviceType           integer  NOT NULL ,
+	DeviceStatus         integer  NOT NULL ,
+	Room                 integer  NOT NULL ,
+	DateOfPurchase       datetime  NOT NULL ,
+	GuarantyPeriod       varchar(15)  NOT NULL ,
+	Price                float  NOT NULL ,
+	ResponsibleEmployee  integer  NOT NULL 
+)
+go
+
+
+
+CREATE TABLE DeviceMovement
+( 
+	ID_DeviceMovement    integer  identity (1,1) not null primary key ,
+	Device               integer  NOT NULL ,
+	DateOfMovement       datetime  NOT NULL ,
+	Employee             integer  NOT NULL ,
+	PreviousRoom         integer  NOT NULL ,
+	NewRoom              integer  NOT NULL 
+)
+go
+
+
+
+CREATE TABLE DeviceStatus
+( 
+	ID_DeviceStatus      integer  identity (1,1) not null primary key ,
+	Name                 varchar(50)  NOT NULL 
+)
+go
+
+
+
+CREATE TABLE DeviceType
+( 
+	ID_DeviceType        integer  identity (1,1) not null primary key ,
+	Name                 varchar(50)  NOT NULL 
+)
+go
+
+
+
+CREATE TABLE Employee
+( 
+	ID_Employee          integer  identity (1,1) not null primary key ,
+	Surname              varchar(40)  NOT NULL ,
+	Name                 varchar(40)  NOT NULL ,
+	Patronymic           varchar(40)  NULL ,
+	Post                 integer  NOT NULL ,
+	Email               varchar(40)  NOT NULL ,
+	PhoneNumber          varchar(15)  NOT NULL ,
+        Department           integer  NOT NULL 
+)
+go
+
+
+CREATE TABLE Post
+( 
+	ID_Post              integer  identity (1,1) not null primary key ,
+	Name                 varchar(50)  NOT NULL 
+)
+go
+
+CREATE TABLE RepairWork
+( 
+	ID_RepairWork        integer  identity (1,1) not null primary key ,
+	StartOfWork           datetime  NOT NULL ,
+        EndOfWork             datetime  NULL ,
+	Description          varchar(200)  NOT NULL ,
+	Device               integer  NOT NULL ,
+	Master               integer  NOT NULL 
+)
+go
+
+
+
+CREATE TABLE Room
+( 
+	ID_Room              integer  identity (1,1) not null primary key ,
+	Name                 varchar(10)  NOT NULL
+)
+go
+
+
+
+CREATE TABLE Software
+( 
+	ID_Software          integer  identity (1,1) not null primary key ,
+	Name                 varchar(100)  NOT NULL ,
+	LicenseKey           varchar(30)  NULL ,
+	LicenseKeyDuration   integer  NULL ,
+	Price                float  NULL ,
+	DateOfPurchase       datetime  NULL ,
+	SoftwareType         integer  NOT NULL ,
+	KeyNeed              bit NOT NULL
+)
+go
+
+
+
+CREATE TABLE SoftwareInstallation
+( 
+	ID_SoftwareInstallation    integer  identity (1,1) not null primary key ,
+	Device            integer  NOT NULL ,
+	Software          integer  NOT NULL 
+)
+go
+
+CREATE TABLE SoftwareType
+( 
+	ID_SoftwareType      integer  identity (1,1) not null primary key ,
+	Name                 varchar(50)  NOT NULL
+)
+go
+
+
+
+ALTER TABLE Device
+	ADD CONSTRAINT R_1 FOREIGN KEY (DeviceType) REFERENCES DeviceType(ID_DeviceType)
+go
+
+ALTER TABLE Device
+	ADD CONSTRAINT R_2 FOREIGN KEY (Room) REFERENCES Room(ID_Room)
+go
+
+ALTER TABLE Device
+	ADD CONSTRAINT R_3 FOREIGN KEY (DeviceStatus) REFERENCES DeviceStatus(ID_DeviceStatus)
+go
+
+ALTER TABLE Device
+	ADD CONSTRAINT R_4 FOREIGN KEY (ResponsibleEmployee) REFERENCES Employee(ID_Employee) 
+go
+
+ALTER TABLE Characteristic
+	add CONSTRAINT R_5 FOREIGN KEY (Device) REFERENCES Device(ID_Device) ON DELETE CASCADE
+go
+
+ALTER TABLE DeviceMovement
+	ADD CONSTRAINT R_7 FOREIGN KEY (Device) REFERENCES Device(ID_Device) ON DELETE CASCADE
+go
+
+ALTER TABLE DeviceMovement
+	ADD CONSTRAINT R_8 FOREIGN KEY (Employee) REFERENCES Employee(ID_Employee) ON DELETE CASCADE
+go
+
+ALTER TABLE DeviceMovement
+	ADD CONSTRAINT R_9 FOREIGN KEY (PreviousRoom) REFERENCES Room(ID_Room) 
+go
+
+ALTER TABLE DeviceMovement
+	ADD CONSTRAINT R_10 FOREIGN KEY (NewRoom) REFERENCES Room(ID_Room) 
+go
+
+ALTER TABLE Employee
+	ADD CONSTRAINT R_11 FOREIGN KEY (Post) REFERENCES Post(ID_Post)
+go
+
+ALTER TABLE Employee
+	ADD CONSTRAINT R_12 FOREIGN KEY (Department) REFERENCES Department(ID_Department)
+go
+
+ALTER TABLE RepairWork
+	ADD CONSTRAINT R_13 FOREIGN KEY (Device) REFERENCES Device(ID_Device) ON DELETE CASCADE
+go
+
+ALTER TABLE RepairWork
+	ADD CONSTRAINT R_14 FOREIGN KEY (Master) REFERENCES Employee(ID_Employee) ON DELETE CASCADE
+go
+
+ALTER TABLE SoftwareInstallation
+	ADD CONSTRAINT R_15 FOREIGN KEY (Device) REFERENCES Device(ID_Device) ON DELETE CASCADE
+go
+
+ALTER TABLE SoftwareInstallation
+	ADD CONSTRAINT R_16 FOREIGN KEY (Software) REFERENCES Software(ID_Software) ON DELETE CASCADE
+go
+
+ALTER TABLE Software
+	ADD CONSTRAINT R_17 FOREIGN KEY (SoftwareType) REFERENCES SoftwareType(ID_SoftwareType)
+go
